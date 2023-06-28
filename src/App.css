@@ -1,38 +1,156 @@
 .App {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 2em;
+}
+.lose_win_label {
+  font-size: 2rem;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.hangman_drawing {
+  position: relative;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.hangman_drawing_bottom {
+  height: 10px;
+  width: 250px;
+  background-color: black;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.hangman_drawing_middle {
+  height: 400px;
+  width: 10px;
+  background-color: black;
+  margin-left: 120px;
+}
+.hangman_drawing_top {
+  height: 10px;
+  width: 200px;
+  background-color: black;
+  margin-left: 120px;
+}
+
+.hangman_drawing_side {
+  height: 50px;
+  width: 10px;
+  background-color: black;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.hangman_drawing_head {
+  height: 50px;
+  width: 50px;
+  border-radius: 100%;
+  position: absolute;
+  top: 50px;
+  right: -30px;
+  border: 10px solid black;
+}
+
+.hangman_drawing_body {
+  height: 200px;
+  background-color: black;
+  width: 10px;
+  position: absolute;
+  top: 120px;
+  right: 0;
+}
+
+.hangman_drawing_right_arm {
+  height: 100px;
+  width: 10px;
+  position: absolute;
+  top: 110px;
+  right: 0;
+  background-color: black;
+  rotate: 60deg;
+  transform-origin: left bottom;
+}
+
+.hangman_drawing_left_arm {
+  height: 100px;
+  width: 10px;
+  position: absolute;
+  top: 110px;
+  right: 0;
+  background-color: black;
+  rotate: -60deg;
+  transform-origin: right bottom;
+}
+
+.hangman_drawing_right_leg {
+  height: 100px;
+  width: 10px;
+  position: absolute;
+  top: 210px;
+  right: -10px;
+  background-color: black;
+  rotate: 150deg;
+  transform-origin: left bottom;
+}
+
+.hangman_drawing_left_leg {
+  height: 100px;
+  width: 10px;
+  position: absolute;
+  top: 210px;
+  right: 10px;
+  background-color: black;
+  rotate: -150deg;
+  transform-origin: right bottom;
+}
+
+.Hangman_word {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  gap: 0.25em;
+  font-size: 6rem;
+  text-transform: uppercase;
+  font-weight: bold;
 }
 
-.App-link {
-  color: #61dafb;
+.letter {
+  width: fit-content;
+  border-bottom: 0.1em solid black;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.Hangman_keyboard {
+  width: 40%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(75px, 1fr));
+  gap: 0.5rem;
+}
+
+.btn {
+  width: 100%;
+  border: 3px solid black;
+  background: none;
+  aspect-ratio: 1/1;
+  font-size: 2.5rem;
+  text-transform: uppercase;
+  padding: 0.5rem;
+  cursor: pointer;
+  color: black;
+  font-weight: bold;
+}
+
+.btn.active {
+  background-color: hsl(200, 100%, 50%);
+  /* color: white; */
+}
+
+.btn.inactive {
+  opacity: 0.3;
+}
+
+.btn:hover,
+.btn:focus {
+  background-color: hsl(200, 100%, 75%);
+}
+.btn:hover:not(:disabled),
+.btn:focus:not(:disabled) {
+  background-color: hsl(200, 100%, 75%);
 }
